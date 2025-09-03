@@ -31,8 +31,9 @@ public class SecurityConfig {
                     .requestMatchers("/api/clientes/**").authenticated()
                     .anyRequest().permitAll()
             )
+            .formLogin(form -> form.disable())
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
+            
         return http.build();
 
     }
