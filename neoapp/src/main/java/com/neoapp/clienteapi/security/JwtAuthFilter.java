@@ -14,12 +14,12 @@ import jakarta.servlet.http.HttpServletResponse;
 public class JwtAuthFilter extends OncePerRequestFilter{
 
     private final JwtProvider jwtProvider;
-    private final UserDetailsServiceImpl UserDetailsService;
+    private final UserDetailsServiceImpl userDetailsService;
 
 
     public JwtAuthFilter(JwtProvider jwtProvider, UserDetailsServiceImpl usedetailsservice ) {
         this.jwtProvider = jwtProvider;
-        this.UserDetailsService = usedetailsservice;
+        this.userDetailsService = usedetailsservice;
     }
 
 
@@ -37,7 +37,7 @@ public class JwtAuthFilter extends OncePerRequestFilter{
         }
 
          if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            var userDetails = UserDetailsService.loadUserByUsername(username);
+            var userDetails = userDetailsService.loadUserByUsername(username);
 
             var authentication = new org.springframework.security.authentication.UsernamePasswordAuthenticationToken(
                     userDetails, null, userDetails.getAuthorities());

@@ -2,12 +2,12 @@ package com.neoapp.clienteapi.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.authentication.AuthenticationManager;
 
 @Configuration
 public class SecurityConfig {
@@ -15,13 +15,13 @@ public class SecurityConfig {
     private final JwtProvider jwtProvider;
     private final UserDetailsServiceImpl userDetailsService;
 
-    public SecurityConfig (JwtProvider jwtProvider, UserDetailsServiceImpl userDetails) {
+    public SecurityConfig(JwtProvider jwtProvider, UserDetailsServiceImpl userDetailsService) {
         this.jwtProvider = jwtProvider;
-        this.userDetailsService = userDetails;
+        this.userDetailsService = userDetailsService;
     }
 
-    @Bean 
-    public SecurityFilterChain filterChain (HttpSecurity http) throws Exception{
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         JwtAuthFilter jwtFilter = new JwtAuthFilter(jwtProvider, userDetailsService);
 
         http
@@ -33,15 +33,12 @@ public class SecurityConfig {
             )
             .formLogin(form -> form.disable())
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-            
-        return http.build();
 
+        return http.build();
     }
-    
+
     @Bean
-    public AuthenticationManager AuthenticationManager (AuthenticationConfiguration authConfig) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();
     }
-
-
 }

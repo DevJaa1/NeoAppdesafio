@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-NeoappApplication<neoapp>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.neoapp.clienteapi.neoapp.NeoappApplication",
+            "projectName": "neoapp",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

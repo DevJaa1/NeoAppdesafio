@@ -13,43 +13,42 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JwtProvider {
 
     @Value("${jwt.secret}")
-    private String jwSecret;
+    private String jwtSecret;
 
     @Value("${jwt.expiration}")
     private long jwtExpirationMs;
 
-
-    public String gerarToken(String Username) {
+    public String gerarToken(String username) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + jwtExpirationMs);
 
-         return Jwts.builder()
-                .setSubject(Username)
+        return Jwts.builder()
+                .setSubject(username)
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
-                .signWith(SignatureAlgorithm.HS512, jwSecret)
+                .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
 
-    public boolean validarToken (String tkn) {
-        try{
-            Jwts.parser().setSigningKey(jwSecret).parseClaimsJws(tkn);
+    public boolean validarToken(String token) {
+        try {
+            Jwts.parserBuilder()
+                .setSigningKey(jwtSecret)
+                .build()
+                .parseClaimsJws(token);
             return true;
         } catch (JwtException | IllegalArgumentException e) {
+            System.out.println("Token inválido: " + e.getMessage());
             return false;
         }
     }
-
-    public String getUserJWT (String tkn) {
-        return Jwts.parser()
-                .setSigningKey(jwSecret)
-                .parseClaimsJws(tkn)
+    
+    public String getUserJWT(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(jwtSecret)
+                .build()
+                .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
     }
-
-
-
-
-
 }

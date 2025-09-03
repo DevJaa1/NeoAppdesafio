@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +21,6 @@ import com.neoapp.clienteapi.model.Cliente;
 import com.neoapp.clienteapi.service.ClienteService;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
@@ -60,7 +59,7 @@ public class ClienteController {
     }
 
     @Operation(summary = "Buscar cliente por ID")
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity <ClienteDTO> buscarById (@PathVariable Long id) {
         ClienteDTO cliente = clienteService.buscarClienteById(id);
         return ResponseEntity.ok(cliente);
@@ -73,5 +72,6 @@ public class ClienteController {
         return ResponseEntity.noContent().build();
     }
 
+   
 
 }

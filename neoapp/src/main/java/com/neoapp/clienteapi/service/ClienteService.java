@@ -19,74 +19,73 @@ public class ClienteService {
     private final ClienteRepository clienteRepo;
 
     @Autowired
-    public ClienteService (ClienteRepository clienteRepositorio) {
+    public ClienteService(ClienteRepository clienteRepositorio) {
         this.clienteRepo = clienteRepositorio;
     }
 
-     public int calcularIdade(LocalDate dataNascimento) {
+    // Calcula a idade a partir da data de nascimento
+    public int calcularIdade(LocalDate dataNascimento) {
         if (dataNascimento == null) {
             return 0;
         }
         return Period.between(dataNascimento, LocalDate.now()).getYears();
     }
 
-    public ClienteDTO criarClientes (Cliente cliente) {
+    // Cria um novo cliente
+    public ClienteDTO criarClientes(Cliente cliente) {
         Cliente salvo = clienteRepo.save(cliente);
         return toDTO(salvo);
-        
     }
 
-    public ClienteDTO atualizarCliente(Long id, ClienteUpdateDTO clienteatt){
-        Cliente cliente = clienteRepo.findById(id).orElseThrow(() -> 
-        new RuntimeException("Cliente não encontrado!"));
+    // Atualiza cliente existente
+    public ClienteDTO atualizarCliente(Long id, ClienteUpdateDTO clienteAtt) {
+        Cliente cliente = clienteRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado!"));
 
-        if(clienteatt.getNome()!= null) cliente.setName(clienteatt.getNome());
-        if(clienteatt.getEmail()!= null) cliente.setEmail(clienteatt.getEmail());
-        if(clienteatt.getDataNasc()!=null) cliente.setDataNasc(clienteatt.getDataNasc());
-        if(cliente.getTelefone()!=null) cliente.setTelefone(clienteatt.getTelefone());
+        if (clienteAtt.getNome() != null) cliente.setName(clienteAtt.getNome());
+        if (clienteAtt.getEmail() != null) cliente.setEmail(clienteAtt.getEmail());
+        if (clienteAtt.getDataNasc() != null) cliente.setDataNasc(clienteAtt.getDataNasc());
+        if (clienteAtt.getTelefone() != null) cliente.setTelefone(clienteAtt.getTelefone());
 
         Cliente atualizado = clienteRepo.save(cliente);
         return toDTO(atualizado);
     }
 
-    
+    // Busca clientes paginados e filtrados por nome/email
     public Page<ClienteDTO> buscarCliente(String busca, Pageable pageable) {
-        
-        Page <Cliente> page;
-        if(busca == null || busca.isEmpty()) {
+        Page<Cliente> page;
+        if (busca == null || busca.isEmpty()) {
             page = clienteRepo.findAll(pageable);
-        }else {
+        } else {
             page = clienteRepo.findByNameAndEmail(busca, busca, pageable);
         }
-        return page.map(this::toDTO);   
+        return page.map(this::toDTO);
     }
 
+    // Busca cliente por ID
     public ClienteDTO buscarClienteById(Long id) {
-        Cliente cliente = clienteRepo.findById(id).orElseThrow(() -> 
-        new RuntimeException("Cliente não encontrado por esse ID: " + id));
-
+        Cliente cliente = clienteRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Cliente não encontrado por esse ID: " + id));
         return toDTO(cliente);
     }
 
+    // Exclui cliente por ID
     public void excluirCliente(Long id) {
-        if(!clienteRepo.existsById(id)){
-            throw new RuntimeException("Cliente não encontrado por esse ID:" + id);
+        if (!clienteRepo.existsById(id)) {
+            throw new RuntimeException("Cliente não encontrado por esse ID: " + id);
         }
         clienteRepo.deleteById(id);
     }
 
-    private ClienteDTO toDTO (Cliente cliente) {
+    // Converte Cliente para ClienteDTO
+    private ClienteDTO toDTO(Cliente cliente) {
         return new ClienteDTO(
-            cliente.getId(),
-            cliente.getName(),
-            cliente.getTelefone(),
-            cliente.getEmail(),
-            cliente.CalcularIdade(),
-            cliente.getDataNasc()
+                cliente.getId(),
+                cliente.getName(),
+                cliente.getTelefone(),
+                cliente.getEmail(),
+                calcularIdade(cliente.getDataNasc()), 
+                cliente.getDataNasc()
         );
     }
-
-
-
-
 }
