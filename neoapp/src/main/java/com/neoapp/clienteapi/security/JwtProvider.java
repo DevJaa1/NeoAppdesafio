@@ -12,10 +12,10 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtProvider {
 
-    @Value("{jwt.secret}")
+    @Value("${jwt.secret}")
     private String jwSecret;
 
-    @Value("{jwt.expiration}")
+    @Value("${jwt.expiration}")
     private long jwtExpirationMs;
 
 
