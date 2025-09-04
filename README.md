@@ -162,6 +162,12 @@ http://localhost:8080/swagger-ui.html
 ```
 
 ---
+## Hospedagem da API
+
+A API do projeto **NeoApp** está hospedada no **Render Web Service**, uma plataforma de nuvem que permite disponibilizar aplicações web de forma segura e confiável.  
+
+Você pode acessar a API através do seguinte link:  
+[NeoApp API](https://neoappdesafio.onrender.com)
 
 ## Licença
 
