@@ -33,9 +33,6 @@ public class SecurityConfig {
                 .requestMatchers("/api/clientes/**").permitAll()
                 .anyRequest().permitAll()
             )
-                    .requestMatchers("/api/clientes/**").permitAll()    
-                    .anyRequest()
-            )
             .formLogin(form -> form.disable())
             .httpBasic(basic -> basic.disable())
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
