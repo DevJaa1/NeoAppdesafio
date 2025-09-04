@@ -8,6 +8,6 @@ import com.neoapp.clienteapi.neoapp.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 
-    Page<Cliente> findByNameAndEmail(String nome, String email, Pageable pageable);
+    Page<Cliente> findByNameAndEmail(String name, String email, Pageable pageable);
 
 }
