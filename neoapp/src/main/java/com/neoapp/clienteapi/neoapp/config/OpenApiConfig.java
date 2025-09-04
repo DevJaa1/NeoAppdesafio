@@ -1,4 +1,4 @@
-package com.neoapp.clienteapi.config;
+package com.neoapp.clienteapi.neoapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

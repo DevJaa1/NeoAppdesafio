@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.neoapp.clienteapi.neoapp.dto.ClienteDTO;
 import com.neoapp.clienteapi.neoapp.dto.ClienteUpdateDTO;
 import com.neoapp.clienteapi.neoapp.model.Cliente;
-import com.neoapp.clienteapi.service.ClienteService;
+import com.neoapp.clienteapi.neoapp.service.ClienteService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

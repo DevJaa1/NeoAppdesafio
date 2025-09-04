@@ -1,4 +1,4 @@
-package com.neoapp.clienteapi.Exception;
+package com.neoapp.clienteapi.neoapp.Exception;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;

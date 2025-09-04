@@ -1,4 +1,4 @@
-package com.neoapp.clienteapi.service;
+package com.neoapp.clienteapi.neoapp.service;
 
 import java.time.LocalDate;
 import java.time.Period;
