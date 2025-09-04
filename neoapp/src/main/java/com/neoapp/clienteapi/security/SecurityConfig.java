@@ -29,7 +29,7 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                     .requestMatchers("/api/clientes/**").permitAll()    
-                    .anyRequest().permitAll()
+                    .anyRequest()
             )
             .formLogin(form -> form.disable())
             .httpBasic(basic -> basic.disable())
