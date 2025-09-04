@@ -1,4 +1,4 @@
-package com.neoapp.clienteapi.repository;
+package com.neoapp.clienteapi.neoapp.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

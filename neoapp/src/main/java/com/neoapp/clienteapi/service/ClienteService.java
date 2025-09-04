@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.neoapp.clienteapi.dto.ClienteDTO;
 import com.neoapp.clienteapi.dto.ClienteUpdateDTO;
 import com.neoapp.clienteapi.model.Cliente;
-import com.neoapp.clienteapi.repository.ClienteRepository;
+import com.neoapp.clienteapi.neoapp.repository.ClienteRepository;
 
 @Service
 public class ClienteService {
