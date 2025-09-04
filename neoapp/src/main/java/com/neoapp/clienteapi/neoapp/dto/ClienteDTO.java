@@ -1,4 +1,4 @@
-package com.neoapp.clienteapi.dto;
+package com.neoapp.clienteapi.neoapp.dto;
 
 import java.time.LocalDate;
 

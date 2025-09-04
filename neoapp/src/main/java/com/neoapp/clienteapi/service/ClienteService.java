@@ -8,9 +8,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.neoapp.clienteapi.dto.ClienteDTO;
-import com.neoapp.clienteapi.dto.ClienteUpdateDTO;
-import com.neoapp.clienteapi.model.Cliente;
+import com.neoapp.clienteapi.neoapp.dto.ClienteDTO;
+import com.neoapp.clienteapi.neoapp.dto.ClienteUpdateDTO;
+import com.neoapp.clienteapi.neoapp.model.Cliente;
 import com.neoapp.clienteapi.neoapp.repository.ClienteRepository;
 
 @Service

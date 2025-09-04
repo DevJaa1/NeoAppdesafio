@@ -4,7 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.neoapp.clienteapi.model.Cliente;
+import com.neoapp.clienteapi.neoapp.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 

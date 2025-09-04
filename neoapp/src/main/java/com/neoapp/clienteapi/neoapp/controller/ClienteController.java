@@ -1,4 +1,4 @@
-package com.neoapp.clienteapi.controller;
+package com.neoapp.clienteapi.neoapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.neoapp.clienteapi.dto.ClienteDTO;
-import com.neoapp.clienteapi.dto.ClienteUpdateDTO;
-import com.neoapp.clienteapi.model.Cliente;
+import com.neoapp.clienteapi.neoapp.dto.ClienteDTO;
+import com.neoapp.clienteapi.neoapp.dto.ClienteUpdateDTO;
+import com.neoapp.clienteapi.neoapp.model.Cliente;
 import com.neoapp.clienteapi.service.ClienteService;
 
 import io.swagger.v3.oas.annotations.Operation;
