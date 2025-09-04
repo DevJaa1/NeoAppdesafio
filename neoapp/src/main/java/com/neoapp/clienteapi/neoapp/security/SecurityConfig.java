@@ -30,17 +30,14 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-<<<<<<< HEAD:neoapp/src/main/java/com/neoapp/clienteapi/security/SecurityConfig.java
                 .requestMatchers("/api/clientes/**").permitAll()
                 .anyRequest().permitAll()
             )
-=======
                     .requestMatchers("/api/clientes/**").permitAll()    
                     .anyRequest()
             )
             .formLogin(form -> form.disable())
             .httpBasic(basic -> basic.disable())
->>>>>>> 8efb03a (Att diretorio):neoapp/src/main/java/com/neoapp/clienteapi/neoapp/security/SecurityConfig.java
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
