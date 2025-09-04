@@ -1,4 +1,4 @@
-package com.neoapp.clienteapi.security;
+package com.neoapp.clienteapi.neoapp.security;
 
 import java.util.Date;
 

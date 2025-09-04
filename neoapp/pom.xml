@@ -55,11 +55,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-  			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-  			<scope>test</scope>
-		</dependency>
 
 		<dependency>
   			<groupId>org.springdoc</groupId>
@@ -83,7 +78,11 @@
   			<version>0.11.5</version>
   			<scope>runtime</scope>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 8efb03a (Att diretorio)
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
