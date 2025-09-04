@@ -169,6 +169,8 @@ A API do projeto **NeoApp** está hospedada no **Render Web Service**, uma plata
 Você pode acessar a API através do seguinte link:  
 [NeoApp API](https://neoappdesafio.onrender.com)
 [NeoApp API Swagger](https://neoappdesafio.onrender.com/swagger-ui/index.html))
+[NeoApp API Clientes](https://neoappdesafio.onrender.com/Clientes))
+
 
 ## Licença
 
