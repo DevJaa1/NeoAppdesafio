@@ -78,11 +78,6 @@
   			<version>0.11.5</version>
   			<scope>runtime</scope>
 		</dependency>
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> 8efb03a (Att diretorio)
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
